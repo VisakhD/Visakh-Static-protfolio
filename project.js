@@ -6,7 +6,7 @@ function namevalidation() {
  
 var name = document.getElementById("inputName").value
 var namestatus =document.getElementById("namestatus");
-var letters = /^[a-zA-Z\s]*$/;
+var letters =/^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/;
 if (name == "") {
     namestatus.innerHTML = "Field is required"
     realname =false;
