@@ -41,7 +41,7 @@ function emailValid() {
 function PhoneValid() {
     var phone = document.getElementById("inputNumber").value
     var phonestatus = document.getElementById("phonestatus");
-    const letters = /^\d{10,11}$/;
+    const letters = /^\d{10}$/;
     if (phone == "") {
         phonestatus.innerHTML = "Filed is required"
         phoneStatus= false;
@@ -51,8 +51,19 @@ function PhoneValid() {
         phoneStatus= true;
     }
     else {
+        if(phone.length<10){
+            phonestatus.innerHTML ="Minimum 10 Numbers Required";
+            phoneStatus=false;
+        }
+        else if(phone.length>10){
+            phonestatus.innerHTML ="Maximumm 10 Numbers Only";
+            phoneStatus=false;
+        }
+        else{
+        
         phonestatus.innerHTML = "invalid number";
         phoneStatus=false;
+    }
     }
 
 }
