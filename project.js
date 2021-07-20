@@ -84,7 +84,9 @@ function MessageValid() {
 
 }
  
-
+$('.navbar-collapse a').click(function(){
+    $(".navbar-collapse").collapse('hide');
+});
  
  $("#submit-form").submit((e)=>{
    
