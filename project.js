@@ -1,4 +1,3 @@
-
 var msg , realname , email, phoneStatus ;
 
 
@@ -38,46 +37,65 @@ function emailValid() {
     }
 
 }
-function PhoneValid() {
-    var phone = document.getElementById("inputNumber").value
-    var phonestatus = document.getElementById("phonestatus");
-    const letters = /^\d{10}$/;
-    if (phone == "") {
-        phonestatus.innerHTML = "Filed is required"
-        phoneStatus= false;
+function PhoneValid(){
+    var phone=document.getElementById("inputNumber").value 
+    var phonestatus=document.getElementById("phonestatus");
+    var letters= /^\d+$/;
+    
+    if(phone==""){
+        phonestatus.innerHTML="Filed is required"
+        phoneStatus = false;}
+    else if(phone.match(letters)&& (phone.length==10)){
+        phonestatus.innerHTML="";
+        phoneStatus = true;
     }
-    else if (phone.match(letters)) {
-        phonestatus.innerHTML = "";
-        phoneStatus= true;
-    }
-    else {
-        if(phone.length<10){
-            phonestatus.innerHTML ="Minimum 10 Numbers Required";
-            phoneStatus=false;
-        }
-        else if(phone.length>10){
-            phonestatus.innerHTML ="Maximumm 10 Numbers Only";
-            phoneStatus=false;
-        }
-        else{
-        
-        phonestatus.innerHTML = "invalid number";
-        phoneStatus=false;
-    }
-    }
+    else if(phone.length<10)
+        {
+            if(phone.match(letters))
+            {
+                phonestatus.innerHTML="enter the 10 numbers";
+                phoneStatus = false;
 
-}
+            }
+            else
+            {
+                phonestatus.innerHTML="use numbers";
+                phoneStatus = false;
+            }
+
+            
+        }
+    else if(phone.length>10)
+    {
+        if(phone.match(letters))
+        {
+            phonestatus.innerHTML="please enter 10 numbers";
+            phoneStatus = false;
+        }
+        else
+        {
+            phonestatus.innerHTML="use numbers";
+            phoneStatus = false;
+        }
+    
+        
+    }}
 function MessageValid() {
     var name = document.getElementById("inputMessage").value
     var messageSpan = document.getElementById("messagestatus");
 
-    if (name == "") {
-        messageSpan.innerHTML = "Filed is required"
+    if (name.length<10) {
+        messageSpan.innerHTML = "Minimum 10 charater needed"
         msg= false;
     }
 
 
-    else {
+    else if (name == "") {
+            messageSpan.innerHTML = "Filed is required"
+            msg= false;
+        
+    }
+    else{
         messageSpan.innerHTML = "";
         msg = true;
     }
@@ -112,4 +130,3 @@ $('.navbar-collapse a').click(function(){
         alert("Error")
     }
  })
- 
