@@ -84,15 +84,15 @@ function MessageValid() {
     var name = document.getElementById("inputMessage").value
     var messageSpan = document.getElementById("messagestatus");
 
-    if (name.length<10) {
-        messageSpan.innerHTML = "Minimum 10 charater needed"
-        msg= false;
+    if  (name == "") {
+            messageSpan.innerHTML = "Filed is required"
+            msg= false;   
     }
 
 
-    else if (name == "") {
-            messageSpan.innerHTML = "Filed is required"
-            msg= false;
+    else if  (name.length<10) {
+        messageSpan.innerHTML = "Minimum 10 charater needed"
+        msg= false;
         
     }
     else{
